@@ -28,8 +28,8 @@
             <string>grav = .2;
 vsp = 0;
 hsp = 0;
-jumpspeed = 7;
-movespeed = 4;
+jumpspeed = 6;
+movespeed = 3;
 </string>
           </argument>
         </arguments>
