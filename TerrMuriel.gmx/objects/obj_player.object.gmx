@@ -54,7 +54,7 @@ movespeed = 4;
             <kind>1</kind>
             <string>key_left = -keyboard_check(ord("A"));
 key_right = keyboard_check(ord("D"));
-key_jump = keyboard_check_pressed(vk_space);
+key_jump = keyboard_check(vk_space);
 
 move = key_left + key_right;
 hsp = move * movespeed;
