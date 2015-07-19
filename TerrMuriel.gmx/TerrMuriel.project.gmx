@@ -6,25 +6,18 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-<<<<<<< HEAD
-    <sprite>sprites\sprite0</sprite>
-=======
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_wall</sprite>
->>>>>>> origin/master
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\script0.gml</script>
   </scripts>
-<<<<<<< HEAD
-=======
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
   </objects>
->>>>>>> origin/master
   <rooms name="rooms">
     <room>rooms\room0</room>
   </rooms>
