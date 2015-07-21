@@ -12,6 +12,15 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_hpos_p1.gml</script>
+    <script>scripts\scr_vpos_p1.gml</script>
+    <script>scripts\scr_hpos_p2.gml</script>
+    <script>scripts\scr_vpos_p2.gml</script>
+    <script>scripts\scr_hpos_p3.gml</script>
+    <script>scripts\scr_vpos_p3.gml</script>
+    <script>scripts\scr_camera.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
