@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>avg_fps = 0;
+            <string>globalvar p1, p2, p3;
+avg_fps = 0;
 ticks = 1;
 </string>
           </argument>
