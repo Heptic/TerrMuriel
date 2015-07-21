@@ -108,8 +108,8 @@ y += vsp;
           <argument>
             <kind>1</kind>
             <string>if hsp=0 image_index=0
-if hsp&gt;=0 image_index=1
-if hsp&lt;=0 image_index=2
+if hsp&gt;0 image_index=1
+if hsp&lt;0 image_index=2
 </string>
           </argument>
         </arguments>
