@@ -111,6 +111,7 @@ with p3 {
 
 screenW = display_get_width();
 screenH = display_get_height();
+display_reset(0,1);
 </string>
           </argument>
         </arguments>
@@ -147,7 +148,7 @@ draw_text(0,0,string(fps_real)+" FPS#"
 //draw_text(x,32,string(players)+" Players left");
 
 draw_set_halign(fa_right);
-draw_text(room_width,0,"R to restart");
+draw_text(screenW,0,"R to restart");
 
 </string>
           </argument>
