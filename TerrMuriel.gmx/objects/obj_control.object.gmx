@@ -137,7 +137,8 @@ screenH = display_get_height();
 draw_text(0,0,string(fps_real)+" FPS#"
 +string(avg_fps/ticks)+" Avg. fps#"
 +string(players)+" Players left#"
-+string(screenW)+"*"+string(screenH)+" Screen resolution");
++string(screenW)+"*"+string(screenH)+" Screen resolution#"
++string(view_wview[0])+" w "+string(view_hview[0])+"h");
 
 
 
