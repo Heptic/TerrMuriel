@@ -129,9 +129,15 @@ with p3 {
           <argument>
             <kind>1</kind>
             <string>draw_set_halign(fa_left);
-draw_text(0,0,string(fps_real)+" FPS");
-draw_text(x,16,string(avg_fps/ticks)+" Avg. fps");
-draw_text(x,32,string(players)+" Players left");
+draw_text(0,0,string(fps_real)+" FPS#"
++string(avg_fps/ticks)+" Avg. fps#"
++string(players)+" Players left");
+
+
+
+
+//draw_text(x,16,string(avg_fps/ticks)+" Avg. fps");
+//draw_text(x,32,string(players)+" Players left");
 
 draw_set_halign(fa_right);
 draw_text(room_width,0,"R to restart");
