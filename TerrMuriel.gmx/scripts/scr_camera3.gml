@@ -6,13 +6,13 @@ hview0 = bot.y - top.y + 128
 xview0 = left.x - 64;
 yview0 = top.y - 64;
 
-if hview0 < wview0/1024*768 {
-    hview0 = wview0/1024*768;
+if hview0 < wview0/screenW*screenH {
+    hview0 = wview0/screenW*screenH;
     yview0 = midd.y - (hview0/2);
 }
 
-if wview0 < hview0/769*1024 {
-    wview0 = hview0/768*1024;
+if wview0 < hview0/screenH*screenW {
+    wview0 = hview0/screenH*screenW;
     xview0 = mid.x - (wview0/2);
 }
 

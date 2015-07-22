@@ -53,8 +53,10 @@ ticks = 1;
 ticks ++;
 
 key_restart = keyboard_check_pressed(ord("R"));
+key_exit = keyboard_check_pressed(vk_escape);
 
 if key_restart room_restart();
+if key_exit game_end();
 
 scr_camera3();
 
@@ -92,7 +94,7 @@ with p3 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd;
+            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH;
 players = 3;
 with p1 {
     scr_hpos_p1();
@@ -106,6 +108,9 @@ with p3 {
     scr_hpos_p3();
     scr_vpos_p3();
 }
+
+screenW = display_get_width();
+screenH = display_get_height();
 </string>
           </argument>
         </arguments>
@@ -131,7 +136,8 @@ with p3 {
             <string>draw_set_halign(fa_left);
 draw_text(0,0,string(fps_real)+" FPS#"
 +string(avg_fps/ticks)+" Avg. fps#"
-+string(players)+" Players left");
++string(players)+" Players left#"
++string(screenW)+"*"+string(screenH)+" Screen resolution");
 
 
 
