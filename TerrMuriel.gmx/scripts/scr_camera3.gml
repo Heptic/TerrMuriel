@@ -23,6 +23,13 @@ if xview0 > left.x - 64 {
     xview0 = left.x - 64;
 }
 
+if yview0 + hview0 < bot.y + 64 {
+    yview0 = bot.y + 64 - hview0;
+}
+if xview0 + wview0 < right.x + 64 {
+    xview0 = right.x + 64 - wview0;
+}
+
 view_hview[0] = hview0;
 view_yview[0] = yview0;
 view_wview[0] = wview0;

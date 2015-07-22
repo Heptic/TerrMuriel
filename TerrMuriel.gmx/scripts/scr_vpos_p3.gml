@@ -1,4 +1,4 @@
-if y < p1.y and y < p2.y {
+if y < p1.y and y <= p2.y {
     top = id;
 }
 if y > p1.y and y > p2.y {
