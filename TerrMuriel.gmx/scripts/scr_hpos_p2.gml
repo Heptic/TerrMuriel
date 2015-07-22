@@ -1,7 +1,7 @@
-if x < p1.x and x < p3.x {
+if x <= p1.x and x < p3.x {
     left = id;
 }
-if x > p1.x and x > p3.x {
+if x > p1.x and x >= p3.x {
     right = id;
 }
 
