@@ -56,7 +56,7 @@ key_restart = keyboard_check_pressed(ord("R"));
 
 if key_restart room_restart();
 
-scr_camera2();
+scr_camera3();
 
 with p1 {
     scr_hpos_p1();
@@ -158,7 +158,8 @@ draw_text(room_width,0,"R to restart");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_middle);
+            <string>draw_set_color(c_white);
+draw_set_halign(fa_middle);
 with left {
     draw_text(x,y-32,"LEFT");
 }

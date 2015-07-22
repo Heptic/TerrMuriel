@@ -21,6 +21,7 @@
     <script>scripts\scr_vpos_p3.gml</script>
     <script>scripts\scr_camera.gml</script>
     <script>scripts\scr_camera2.gml</script>
+    <script>scripts\scr_camera3.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_player</object>
