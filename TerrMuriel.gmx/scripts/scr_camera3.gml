@@ -53,8 +53,8 @@ if xview0 + wview0 < right.x + cam_offset {
 view_hview[0] += (hview0 - view_hview[0]) *.05;
 view_wview[0] += (wview0 - view_wview[0]) *.05;
 
-view_xview[0] += (xview0 - view_xview[0]) *.1;
-view_yview[0] += (yview0 - view_yview[0]) *.1;
+view_xview[0] += (xview0 - view_xview[0]) *.05;
+view_yview[0] += (yview0 - view_yview[0]) *.05;
 
 if ticks = 2 {
     view_hview[0] = hview0;

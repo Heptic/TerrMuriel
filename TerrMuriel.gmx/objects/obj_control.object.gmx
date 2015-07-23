@@ -209,6 +209,7 @@ draw_text(screenW,0,"R to restart#"
             <string>draw_set_color(c_white);
 if debug {
 draw_set_halign(fa_middle);
+if players = 1 with p1 draw_text(x,y-32,"P1");
 if players &gt; 1 {
 with left {
     draw_text(x,y-32,"LEFT");
@@ -222,6 +223,8 @@ with top {
 with bot {
     draw_text(x,y-48,"BOT");
 }
+with p1 draw_text(x,y-64,"P1");
+with p2 draw_text(x,y-64,"P2");
 if players = 3 {
 with mid {
     draw_text(x,y-32,"XMID");
@@ -229,6 +232,7 @@ with mid {
 with midd {
     draw_text(x,y-48,"YMID");
 }
+with p3 draw_text(x,y-64,"P3");
 }
 }
 }
