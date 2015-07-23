@@ -179,7 +179,7 @@ with left {
     draw_text(x,y-32,"LEFT");
 }
 with mid {
-    draw_text(x,y-32,"MID");
+    draw_text(x,y-32,"XMID");
 }
 with right {
     draw_text(x,y-32,"RIGHT");
@@ -189,7 +189,7 @@ with top {
     draw_text(x,y-48,"TOP");
 }
 with midd {
-    draw_text(x,y-48,"MIDD");
+    draw_text(x,y-48,"YMID");
 }
 with bot {
     draw_text(x,y-48,"BOT");
