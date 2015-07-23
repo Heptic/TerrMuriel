@@ -54,9 +54,11 @@ ticks ++;
 
 key_restart = keyboard_check_pressed(ord("R"));
 key_exit = keyboard_check_pressed(vk_escape);
+key_debug = keyboard_check_pressed(vk_f1);
 
 if key_restart room_restart();
 if key_exit game_end();
+if key_debug debug = !debug;
 
 scr_camera3();
 
@@ -94,7 +96,7 @@ with p3 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset;
+            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset, debug;
 players = 3;
 with p1 {
     scr_hpos_p1();
@@ -113,6 +115,7 @@ screenW = display_get_width();
 screenH = display_get_height();
 display_reset(0,1);
 cam_offset = 96;
+debug = false;
 </string>
           </argument>
         </arguments>
@@ -135,13 +138,15 @@ cam_offset = 96;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_left);
+            <string>
+if debug {
+draw_set_halign(fa_left);
 draw_text(0,0,string(fps_real)+" FPS#"
 +string(avg_fps/ticks)+" Avg. fps#"
 +string(players)+" Players left#"
 +string(screenW)+"*"+string(screenH)+" Screen resolution#"
-+string(view_wview[0])+" w "+string(view_hview[0])+"h");
-
++string(view_wview[0]/screenW)+" Cam / Screen resolution");
+}
 
 
 
@@ -149,8 +154,8 @@ draw_text(0,0,string(fps_real)+" FPS#"
 //draw_text(x,32,string(players)+" Players left");
 
 draw_set_halign(fa_right);
-draw_text(screenW,0,"R to restart");
-
+draw_text(screenW,0,"R to restart#"
++"F1 for debug mode");
 </string>
           </argument>
         </arguments>
@@ -174,6 +179,7 @@ draw_text(screenW,0,"R to restart");
           <argument>
             <kind>1</kind>
             <string>draw_set_color(c_white);
+if debug {
 draw_set_halign(fa_middle);
 with left {
     draw_text(x,y-32,"LEFT");
@@ -193,6 +199,7 @@ with midd {
 }
 with bot {
     draw_text(x,y-48,"BOT");
+}
 }
 </string>
           </argument>
