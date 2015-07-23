@@ -32,6 +32,30 @@ ticks = 1;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>players = instance_number(obj_player);
+scr_camera3();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -60,8 +84,7 @@ if key_restart room_restart();
 if key_exit game_end();
 if key_debug debug = !debug;
 
-scr_camera3();
-
+if players &gt; 1 {
 with p1 {
     scr_hpos_p1();
     scr_vpos_p1();
@@ -70,9 +93,14 @@ with p2 {
     scr_hpos_p2();
     scr_vpos_p2();
 }
-with p3 {
+}
+if players &gt; 2 with p3 {
     scr_hpos_p3();
     scr_vpos_p3();
+}
+
+/*if players = 1 {
+    left = p1.id;
 }
 </string>
           </argument>
@@ -97,16 +125,16 @@ with p3 {
           <argument>
             <kind>1</kind>
             <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset, debug;
-players = 3;
+players = instance_number(obj_player);
 with p1 {
     scr_hpos_p1();
     scr_vpos_p1();
 }
-with p2 {
+if instance_exists(p2) with p2 {
     scr_hpos_p2();
     scr_vpos_p2();
 }
-with p3 {
+if instance_exists(p3) with p3 {
     scr_hpos_p3();
     scr_vpos_p3();
 }
@@ -181,24 +209,27 @@ draw_text(screenW,0,"R to restart#"
             <string>draw_set_color(c_white);
 if debug {
 draw_set_halign(fa_middle);
+if players &gt; 1 {
 with left {
     draw_text(x,y-32,"LEFT");
-}
-with mid {
-    draw_text(x,y-32,"XMID");
 }
 with right {
     draw_text(x,y-32,"RIGHT");
 }
-
 with top {
     draw_text(x,y-48,"TOP");
+}
+with bot {
+    draw_text(x,y-48,"BOT");
+}
+if players = 3 {
+with mid {
+    draw_text(x,y-32,"XMID");
 }
 with midd {
     draw_text(x,y-48,"YMID");
 }
-with bot {
-    draw_text(x,y-48,"BOT");
+}
 }
 }
 </string>

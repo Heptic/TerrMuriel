@@ -1,3 +1,4 @@
+if players = 3 {
 if y < p2.y and y <= p3.y {
     top = id;
 }
@@ -10,4 +11,11 @@ if y > p2.y and y <= p3.y {
 }
 if y <= p2.y and y > p3.y {
     midd = id;
+}
+}
+
+if players = 2 {
+if y <= p2.y {
+    top = id;
+} else bot = id;
 }
