@@ -94,7 +94,7 @@ with p3 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH;
+            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset;
 players = 3;
 with p1 {
     scr_hpos_p1();
@@ -112,6 +112,7 @@ with p3 {
 screenW = display_get_width();
 screenH = display_get_height();
 display_reset(0,1);
+cam_offset = 96;
 </string>
           </argument>
         </arguments>
