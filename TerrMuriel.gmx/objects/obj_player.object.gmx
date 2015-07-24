@@ -25,13 +25,67 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>grav = .2;
+            <string>///sette variabler
+grav = .2;
 vsp = 0;
 hsp = 0;
 jumpspeed = 6;
 movespeed = 3;
 image_speed=0
 image_index=0
+
+if p1 = 0 {
+    p1 = id;
+} else if p2 = 0 {
+    p2 = id;
+} else if p3 = 0 {
+    p3 = id;
+} else {
+    instance_destroy();
+}
+
+if top = 0 {
+    top = id;
+} else if midd = 0 {
+    midd = id;
+} else if bot = 0 {
+    bot = id;
+}
+
+if left = 0 {
+    left = id;
+} else if mid = 0 {
+    mid = id;
+} else if right = 0 {
+    right = id;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///sjekke om jeg sitter fast
+
+if place_meeting(x,y,obj_wall) {
+    while place_meeting(x,y,obj_wall) {
+        y --;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -68,7 +122,6 @@ if players = 2 and p1.id = id {
     with p2 p1 = id;
     p2 = 0;
 }
-players --;
 </string>
           </argument>
         </arguments>
@@ -152,7 +205,7 @@ if hsp&lt;0 image_index=2
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="0">
+    <event eventtype="6" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -169,7 +222,10 @@ if hsp&lt;0 image_index=2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if players &gt; 1 instance_destroy();
+            <string>if players &gt; 1 {
+    players --;
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

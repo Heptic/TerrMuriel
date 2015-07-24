@@ -25,8 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>avg_fps = 0;
-ticks = 1;
+            <string>///globale variabler
+globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset, debug, ticks, avg_fps;
+
+players = 0;
+
+p1 = 0;
+p2 = 0;
+p3 = 0;
+
+left = 0;
+mid = 0;
+right = 0;
+top = 0;
+midd = 0;
+bot = 0;
 </string>
           </argument>
         </arguments>
@@ -49,8 +62,29 @@ ticks = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>players = instance_number(obj_player);
+            <string>///sette i gang plasserings- og kameraskript
+players = instance_number(obj_player);
+
+
+if players &gt; 1 {
+with p1 {
+    scr_hpos_p1();
+    scr_vpos_p1();
+}
+with p2 {
+    scr_hpos_p2();
+    scr_vpos_p2();
+}
+}
+if players &gt; 2 with p3 {
+    scr_hpos_p3();
+    scr_vpos_p3();
+}
+
 scr_camera3();
+
+avg_fps += fps_real;
+ticks ++;
 </string>
           </argument>
         </arguments>
@@ -73,8 +107,7 @@ scr_camera3();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>avg_fps += fps_real;
-ticks ++;
+            <string>///knappesjekker
 
 key_restart = keyboard_check_pressed(ord("R"));
 key_exit = keyboard_check_pressed(vk_escape);
@@ -83,25 +116,109 @@ key_debug = keyboard_check_pressed(vk_f1);
 if key_restart room_restart();
 if key_exit game_end();
 if key_debug debug = !debug;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="61">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cam_offset += 8;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="60">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cam_offset -= 8;
 
-if players &gt; 1 {
-with p1 {
-    scr_hpos_p1();
-    scr_vpos_p1();
+if cam_offset &lt; 16 {
+    cam_offset = 16;
 }
-with p2 {
-    scr_hpos_p2();
-    scr_vpos_p2();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if players &lt; 3 {
+    with instance_create(mouse_x,mouse_y,obj_player) {
+        if players = 1 p2 = id;
+        if players = 2 p3 = id;
+    }
 }
-}
-if players &gt; 2 with p3 {
-    scr_hpos_p3();
-    scr_vpos_p3();
-}
-
-/*if players = 1 {
-    left = p1.id;
-}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///tellevariabler resetter
+avg_fps = 0;
+ticks = 1;
 </string>
           </argument>
         </arguments>
@@ -124,7 +241,8 @@ if players &gt; 2 with p3 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset, debug;
+            <string>///sette i gang skript
+
 players = instance_number(obj_player);
 with p1 {
     scr_hpos_p1();
@@ -166,14 +284,15 @@ debug = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// info og debug tekst
 if debug {
 draw_set_halign(fa_left);
 draw_text(0,0,string(fps_real)+" FPS#"
 +string(avg_fps/ticks)+" Avg. fps#"
-+string(players)+" Players left#"
++string(players)+" Player(s) left#"
 +string(screenW)+"*"+string(screenH)+" Screen resolution#"
-+string(view_wview[0]/screenW)+" Cam / Screen resolution");
++string(view_wview[0]/screenW)+" Cam / Screen resolution#"
++string(cam_offset)+" Camera offset");
 }
 
 
@@ -183,7 +302,9 @@ draw_text(0,0,string(fps_real)+" FPS#"
 
 draw_set_halign(fa_right);
 draw_text(screenW,0,"R to restart#"
-+"F1 for debug mode");
++"F1 for debug mode#"
++"Right click a player to remove him#"
++"Left click anywhere to create a player");
 </string>
           </argument>
         </arguments>
@@ -206,7 +327,8 @@ draw_text(screenW,0,"R to restart#"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
+            <string>///debugtekst for plasseringer og playerid
+draw_set_color(c_white);
 if debug {
 draw_set_halign(fa_middle);
 if players = 1 with p1 draw_text(x,y-32,"P1");
