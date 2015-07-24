@@ -122,6 +122,10 @@ if players = 2 and p1.id = id {
     with p2 p1 = id;
     p2 = 0;
 }
+
+if p1 = id p1 = 0;
+if p2 = id p2 = 0;
+if p3 = id p3 = 0;
 </string>
           </argument>
         </arguments>
