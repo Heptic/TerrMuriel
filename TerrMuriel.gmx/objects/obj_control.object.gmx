@@ -188,10 +188,14 @@ if cam_offset &lt; 16 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if players &lt; 3 {
+            <string>if !instance_exists(p1) p1 = 0;
+if !instance_exists(p2) p2 = 0;
+if !instance_exists(p3) p3 = 0;
+
+if players &lt; 3 {
     with instance_create(mouse_x,mouse_y,obj_player) {
-        if players = 1 p2 = id;
-        if players = 2 p3 = id;
+        //if players = 1 p2 = id;
+        //if players = 2 p3 = id;
     }
 }
 </string>
@@ -292,7 +296,10 @@ draw_text(0,0,string(fps_real)+" FPS#"
 +string(players)+" Player(s) left#"
 +string(screenW)+"*"+string(screenH)+" Screen resolution#"
 +string(view_wview[0]/screenW)+" Cam / Screen resolution#"
-+string(cam_offset)+" Camera offset");
++string(cam_offset)+" Camera offset#"
++string(p1)+" P1#"
++string(p2)+" P2#"
++string(p3)+" P3#");
 }
 
 
@@ -346,8 +353,8 @@ with top {
 with bot {
     draw_text(x,y-48,"BOT");
 }
-with p1 draw_text(x,y-64,"P1");
-with p2 draw_text(x,y-64,"P2");
+if instance_exists(p1) with p1 {draw_text(x,y-64,"P1")};
+if instance_exists(p2) with p2 {draw_text(x,y-64,"P2")};
 if players = 3 {
 with mid {
     draw_text(x,y-32,"XMID");
@@ -355,7 +362,7 @@ with mid {
 with midd {
     draw_text(x,y-48,"YMID");
 }
-with p3 draw_text(x,y-64,"P3");
+if instance_exists(p3) with p3 {draw_text(x,y-64,"P3")};
 }
 }
 }
