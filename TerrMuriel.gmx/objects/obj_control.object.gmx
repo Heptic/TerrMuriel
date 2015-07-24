@@ -304,7 +304,8 @@ draw_set_halign(fa_right);
 draw_text(screenW,0,"R to restart#"
 +"F1 for debug mode#"
 +"Right click a player to remove him#"
-+"Left click anywhere to create a player");
++"Left click anywhere to create a player#"
++"Scroll to zoom");
 </string>
           </argument>
         </arguments>
