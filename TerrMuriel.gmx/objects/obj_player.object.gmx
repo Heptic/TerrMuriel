@@ -208,6 +208,27 @@ y += vsp;
 if hsp = 0 image_index = 0;
 if hsp &gt; 0 image_index = 1;
 if hsp &lt; 0 image_index = 2;
+
+if players != 1 {
+if p1 = id {
+    if x = p2.x and y = p2.y {
+        players --;
+        with p2 instance_destroy();
+    }
+    if players = 3 {
+    if x = p3.x and y = p3.y {
+        players --;
+        with p3 instance_destroy();
+    }
+    }
+}
+}
+if players = 3 and p2 = id {
+    if x = p3.x and y = p3.y {
+        players --;
+        with p3 instance_destroy();
+    }
+}
 </string>
           </argument>
         </arguments>
