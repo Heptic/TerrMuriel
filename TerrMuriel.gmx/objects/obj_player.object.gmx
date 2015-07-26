@@ -229,11 +229,17 @@ if hsp &lt; 0 image_index = 2;
           <argument>
             <kind>1</kind>
             <string>///Character Removal
+if players!=1 {
 if p1=id {
     if x=p2.x and y=p2.y {
         players --;
         with p2 instance_destroy();
     }
+    if x=p3.x and y=p3.y {
+        players --;
+        with p3 instance_destroy();
+    }
+}
 }
 </string>
           </argument>
