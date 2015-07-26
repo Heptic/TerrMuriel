@@ -204,8 +204,7 @@ y += vsp;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Horizontal Speed
-if hsp = 0 image_index = 0;
+            <string>if hsp = 0 image_index = 0;
 if hsp &gt; 0 image_index = 1;
 if hsp &lt; 0 image_index = 2;
 
@@ -227,33 +226,6 @@ if players = 3 and p2 = id {
     if x = p3.x and y = p3.y {
         players --;
         with p3 instance_destroy();
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Character Removal
-if p1=id {
-    if x=p2.x and y=p2.y {
-        players --;
-        with p2 instance_destroy();
     }
 }
 </string>
