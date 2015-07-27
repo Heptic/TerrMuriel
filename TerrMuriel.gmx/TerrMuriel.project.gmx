@@ -9,6 +9,9 @@
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_finish</sprite>
+    <sprite>sprites\spr_grass</sprite>
+    <sprite>sprites\spr_honey</sprite>
+    <sprite>sprites\spr_bee</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -28,6 +31,7 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_finish</object>
     <object>objects\obj_control</object>
+    <object>objects\obj_bee</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_1</room>
