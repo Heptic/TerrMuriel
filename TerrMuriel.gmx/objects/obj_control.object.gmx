@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///globale variabler
-globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset, debug, ticks, avg_fps;
+globalvar p1, p2, p3, players, left, right, mid, top, bot, midd, screenW, screenH, cam_offset, debug, ticks, avg_fps,
+bees;
 
 players = 0;
 
@@ -40,6 +41,8 @@ right = 0;
 top = 0;
 midd = 0;
 bot = 0;
+
+bees = 0;
 </string>
           </argument>
         </arguments>
@@ -171,7 +174,7 @@ if cam_offset &lt; 16 {
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="53">
+    <event eventtype="6" enumb="50">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -268,7 +271,7 @@ if instance_exists(p3) with p3 {
 
 screenW = display_get_width();
 screenH = display_get_height();
-display_reset(0,1);
+display_reset(0,0);
 cam_offset = 96;
 debug = false;
 </string>
@@ -304,7 +307,8 @@ draw_text(0,0,string(fps_real)+" FPS#"
 +string(cam_offset)+" Camera offset#"
 +string(p1)+" P1#"
 +string(p2)+" P2#"
-+string(p3)+" P3#");
++string(p3)+" P3#"
++string(bees)+" Bees#");
 }
 
 
@@ -315,8 +319,7 @@ draw_text(0,0,string(fps_real)+" FPS#"
 draw_set_halign(fa_right);
 draw_text(screenW,0,"R to restart#"
 +"F1 for debug mode#"
-+"Right click a player to remove him#"
-+"Left click anywhere to create a player#"
++"Left click anywhere to create a bee#"
 +"Scroll to zoom");
 </string>
           </argument>
